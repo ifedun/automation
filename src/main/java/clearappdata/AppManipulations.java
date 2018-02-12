@@ -4,8 +4,6 @@ import java.io.IOException;
 
 public class AppManipulations {
 
-    private static String forceStopCmd = "adb shell am force-stop ";
-    private static String clearAppDataCmd = "adb shell pm clear ";
     private static String package_id;
 
     public AppManipulations(String package_id) {
@@ -13,9 +11,10 @@ public class AppManipulations {
         this.package_id = package_id;
     }
 
-    public void forceStopApp(){
+    public void forceStopApp() {
 
         Runtime runtime = Runtime.getRuntime();
+        String forceStopCmd = "adb shell am force-stop ";
         String command = forceStopCmd + package_id;
 
         try {
@@ -26,9 +25,10 @@ public class AppManipulations {
 
     }
 
-    public void clearAppData(){
+    public void clearAppData() {
 
         Runtime runtime = Runtime.getRuntime();
+        String clearAppDataCmd = "adb shell pm clear ";
         String command = clearAppDataCmd + package_id;
 
         try {
