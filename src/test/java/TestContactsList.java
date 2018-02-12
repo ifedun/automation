@@ -1,3 +1,4 @@
+import appiumsetup.AppiumServerService;
 import appiumsetup.SetupAppiumDriver;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
@@ -23,7 +24,10 @@ public class TestContactsList {
     private static AppiumDriver<MobileElement> driver;
 
     @BeforeClass
-    public void invokeApiumDriver() {
+    public void invokeAppiumServerAndAppiumDriver() {
+        AppiumServerService service = new AppiumServerService();
+        service.startServer();
+
         SetupAppiumDriver setupAppiumDriver = new SetupAppiumDriver(driver);
         driver = setupAppiumDriver.invokeDriver();
     }
@@ -87,8 +91,12 @@ public class TestContactsList {
     }
 
     @AfterClass
-    public void quitDriver() {
+    public void quitDriverAndServer() {
+
         driver.quit();
+
+        AppiumServerService service = new AppiumServerService();
+        service.stopServer();
     }
 }
 
