@@ -1,12 +1,12 @@
-package clearappdata;
+package utilities;
 
 import java.io.IOException;
 
-public class AppManipulations {
+public class AdbCommand {
 
     private static String package_id;
 
-    public AppManipulations(String package_id) {
+    public AdbCommand(String package_id) {
 
         this.package_id = package_id;
     }

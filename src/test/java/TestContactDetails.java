@@ -1,12 +1,12 @@
 import appiumsetup.AppiumServerService;
 import appiumsetup.SetupAppiumDriver;
-import clearappdata.AppManipulations;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import pageobject.ContactDetails;
 import pageobject.ContactsList;
+import utilities.AdbCommand;
 
 public class TestContactDetails {
 
@@ -83,7 +83,7 @@ public class TestContactDetails {
     public void quitApp() {
 
         driver.closeApp();
-        AppManipulations appManipulations = new AppManipulations("com.jayway.contacts");
+        AdbCommand appManipulations = new AdbCommand("com.jayway.contacts");
         appManipulations.forceStopApp();
         appManipulations.clearAppData();
     }

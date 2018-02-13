@@ -10,6 +10,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pageobject.ContactDetails;
+import utilities.AdbCommand;
 
 public class TestWithScrolling {
     private static AppiumDriver<MobileElement> driver;
@@ -60,6 +61,10 @@ public class TestWithScrolling {
     public void closeApp() {
 
         driver.closeApp();
+
+        AdbCommand appManipulations = new AdbCommand("com.jayway.contacts");
+        appManipulations.forceStopApp();
+        appManipulations.clearAppData();
 
     }
 
