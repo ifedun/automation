@@ -1,6 +1,6 @@
 import appiumsetup.AppiumServerService;
 import appiumsetup.SetupAppiumDriver;
-import clearappdata.AppManipulations;
+import utilities.AdbCommands;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import org.testng.Assert;
@@ -83,9 +83,9 @@ public class TestContactDetails {
     public void quitApp() {
 
         driver.closeApp();
-        AppManipulations appManipulations = new AppManipulations("com.jayway.contacts");
-        appManipulations.forceStopApp();
-        appManipulations.clearAppData();
+        AdbCommands adbCommands = new AdbCommands("com.jayway.contacts");
+        adbCommands.forceStopApp();
+        adbCommands.clearAppData();
     }
 
     @AfterClass

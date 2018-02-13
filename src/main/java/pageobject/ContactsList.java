@@ -19,8 +19,8 @@ public class ContactsList {
         this.driver = driver;
     }
 
-    @iOSFindBy(xpath = "//xpath[@]")
-    @AndroidFindBy(xpath = "//hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.View/android.widget.FrameLayout[1]/android.view.View/android.widget.TextView")
+    @iOSFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"Contacts\"]")
+    @AndroidFindBy(xpath = "//android.widget.FrameLayout[1]/android.view.View/android.widget.TextView")
     private MobileElement titleFieldElement;
 
 //  Fields - elements of a page where value is an element's locator

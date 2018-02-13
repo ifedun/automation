@@ -2,11 +2,11 @@ package utilities;
 
 import java.io.IOException;
 
-public class AppManipulations {
+public class AdbCommands {
 
     private static String package_id;
 
-    public AppManipulations(String package_id) {
+    public AdbCommands(String package_id) {
 
         this.package_id = package_id;
     }

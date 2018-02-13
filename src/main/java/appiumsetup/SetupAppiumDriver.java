@@ -40,6 +40,8 @@ public class SetupAppiumDriver {
                 } catch (MalformedURLException e) {
                     e.printStackTrace();
                 }
+                break;
+
             case IOS:
                 File app = new File(System.getProperty("user.dir") + "/app/ios/Contacts.app");
 
@@ -56,8 +58,8 @@ public class SetupAppiumDriver {
                 } catch (MalformedURLException e) {
                     e.printStackTrace();
                 }
+                break;
         }
-
 
 
         return driver;
