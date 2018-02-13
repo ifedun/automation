@@ -1,4 +1,4 @@
-package clearappdata;
+package utilities;
 
 import java.io.IOException;
 
