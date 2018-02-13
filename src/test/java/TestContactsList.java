@@ -61,13 +61,13 @@ public class TestContactsList {
     @Test
     public void testSearch() {
         ContactsList contactsList = new ContactsList(driver);
-        Assert.assertTrue(contactsList.searchIsPerformed("ma"));
+        Assert.assertTrue(contactsList.isSearchPerformed("ma"));
     }
 
     @Test(dataProvider = "dp")
     public void testClickOnContact(String searchValue, String contactFullName) {
         ContactsList contactsList = new ContactsList(driver);
-        contactsList.searchIsPerformed(searchValue);
+        contactsList.isSearchPerformed(searchValue);
         contactsList.clickOnContact(contactFullName);
 
         ContactDetails contactDetails = new ContactDetails(driver);
@@ -79,7 +79,7 @@ public class TestContactsList {
     public void testSearchError() {
         ContactsList contactsList = new ContactsList(driver);
         String searchValue = "jj";
-        contactsList.searchIsPerformed(searchValue);
+        contactsList.isSearchPerformed(searchValue);
         Assert.assertTrue(contactsList.errorIsDisplayed());
         Assert.assertEquals(contactsList.getErrorText(), "No contacts found with " + "\"" + searchValue + "\"" + " in the name");
     }

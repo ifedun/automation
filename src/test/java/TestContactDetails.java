@@ -26,7 +26,7 @@ public class TestContactDetails {
         driver.launchApp();
 
         ContactsList contactsList = new ContactsList(driver);
-        contactsList.searchIsPerformed("Cedillo");
+        contactsList.isSearchPerformed("Cedillo");
         contactsList.clickOnContact("Duance Cedillo");
 
     }

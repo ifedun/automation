@@ -2,7 +2,11 @@ package pageobject;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import io.appium.java_client.pagefactory.iOSFindBy;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
@@ -11,9 +15,13 @@ public class ContactsList {
     private AppiumDriver<MobileElement> driver;
 
     public ContactsList(AppiumDriver<MobileElement> driver) {
-
+        PageFactory.initElements(new AppiumFieldDecorator(driver), this);
         this.driver = driver;
     }
+
+    @iOSFindBy(xpath = "//xpath[@]")
+    @AndroidFindBy(xpath = "//hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.View/android.widget.FrameLayout[1]/android.view.View/android.widget.TextView")
+    private MobileElement titleFieldElement;
 
 //  Fields - elements of a page where value is an element's locator
 
@@ -27,8 +35,7 @@ public class ContactsList {
 //  Method - action
 
     public String getTitle() {
-        MobileElement title = driver.findElement(By.xpath(titleField));
-        return title.getText();
+        return titleFieldElement.getText();
     }
 
     public String getSearchHint() {
@@ -36,7 +43,7 @@ public class ContactsList {
         return searchHint.getText();
     }
 
-    public boolean searchIsPerformed(String name) {
+    public boolean isSearchPerformed(String name) {
         MobileElement search = driver.findElement(By.id(searchField));
         search.sendKeys(name);
 
