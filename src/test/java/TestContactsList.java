@@ -24,7 +24,7 @@ public class TestContactsList {
 
     private static AppiumDriver<MobileElement> driver;
 
-    @BeforeClass
+    @BeforeClass(alwaysRun = true)
     public void invokeAppiumServerAndAppiumDriver() {
         AppiumServerService service = new AppiumServerService();
         service.startServer();
@@ -34,7 +34,7 @@ public class TestContactsList {
     }
 
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void launchApp() {
         driver.launchApp();
     }
@@ -45,7 +45,7 @@ public class TestContactsList {
         Assert.assertEquals(contactsList.getTitle(), "Contacts");
     }
 
-    @Test
+    @Test(groups = {"smoke"})
     public void testSearchHint() {
         ContactsList contactsList = new ContactsList(driver);
         Assert.assertEquals(contactsList.getSearchHint(), "Search for contact name");
@@ -58,7 +58,7 @@ public class TestContactsList {
 //        Assert.assertEquals("new view is opened"); how to test toast message?
     }
 
-    @Test
+    @Test(groups = {"smoke"})
     public void testSearch() {
         ContactsList contactsList = new ContactsList(driver);
         Assert.assertTrue(contactsList.isSearchPerformed("ma"));
@@ -84,7 +84,7 @@ public class TestContactsList {
         Assert.assertEquals(contactsList.getErrorText(), "No contacts found with " + "\"" + searchValue + "\"" + " in the name");
     }
 
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void quitApp() {
         driver.closeApp();
 
@@ -95,7 +95,7 @@ public class TestContactsList {
 
     }
 
-    @AfterClass
+    @AfterClass(alwaysRun = true)
     public void quitDriverAndServer() {
 
         driver.quit();
