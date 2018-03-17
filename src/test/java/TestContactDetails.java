@@ -7,8 +7,9 @@ import org.testng.Assert;
 import org.testng.annotations.*;
 import pageobject.ContactDetails;
 import pageobject.ContactsList;
+import utils.ExtentReport;
 
-public class TestContactDetails {
+public class TestContactDetails extends ExtentReport {
 
     private static AppiumDriver<MobileElement> driver;
 

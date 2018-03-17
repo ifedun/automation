@@ -7,8 +7,9 @@ import org.testng.Assert;
 import org.testng.annotations.*;
 import pageobject.ContactDetails;
 import pageobject.ContactsList;
+import utils.ExtentReport;
 
-public class TestContactsList {
+public class TestContactsList extends ExtentReport{
 
     @DataProvider(name = "dp")
     public Object[][] createData() {
