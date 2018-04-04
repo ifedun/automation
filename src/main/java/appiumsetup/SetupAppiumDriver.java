@@ -29,7 +29,7 @@ public class SetupAppiumDriver {
             case ANDROID:
                 desiredCapabilities = new DesiredCapabilities();
                 desiredCapabilities.setCapability("platformName", "Android");
-                desiredCapabilities.setCapability("platformVersion", "5.0");
+                desiredCapabilities.setCapability("platformVersion", "P");
                 desiredCapabilities.setCapability("deviceName", "Nexus");
                 desiredCapabilities.setCapability(MobileCapabilityType.NO_RESET, "false");
                 desiredCapabilities.setCapability("appPackage", "com.jayway.contacts");
